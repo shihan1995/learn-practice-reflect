@@ -1,80 +1,95 @@
 
-import React, { useEffect } from 'react';
-import { MessageCircle, Users, FileText, Brain } from 'lucide-react';
+import React from 'react';
+import { Check, Mic, Play } from 'lucide-react';
 import Layout from '@/components/Layout';
-import HLPCard from '@/components/HLPCard';
 
 const HLPSelection = () => {
-  // Scroll to top on mount
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
-  const hlpOptions = [
-    {
-      title: "Classroom Discourse",
-      description: "Learn how to facilitate meaningful discussions and promote student engagement through effective questioning strategies.",
-      icon: <MessageCircle className="h-6 w-6" />,
-      to: "/learn?hlp=discourse"
-    },
-    {
-      title: "Supportive Learning Environment",
-      description: "Discover techniques to create a positive, inclusive classroom culture where all students feel valued and supported.",
-      icon: <Users className="h-6 w-6" />,
-      to: "/learn?hlp=environment"
-    },
-    {
-      title: "Rigorous Content",
-      description: "Explore methods to enhance curriculum with challenging, relevant content that promotes deep understanding.",
-      icon: <FileText className="h-6 w-6" />,
-      to: "/learn?hlp=content"
-    },
-    {
-      title: "Cognitive Engagement",
-      description: "Master strategies to promote higher-order thinking skills and develop students' metacognitive awareness.",
-      icon: <Brain className="h-6 w-6" />,
-      to: "/learn?hlp=cognitive"
-    }
-  ];
-
   return (
     <Layout>
-      <div className="animate-fade-in-up space-y-8">
-        <div className="animate-fade-in mb-10 max-w-3xl">
-          <h1 className="mb-3 text-3xl font-bold text-gray-900">
-            Select a High-Leverage Practice
-          </h1>
-          <p className="text-lg text-gray-600">
-            Each practice is designed to significantly impact student learning and teacher effectiveness.
-            Choose one to begin your learning journey.
-          </p>
-        </div>
-
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-2">
-          {hlpOptions.map((hlp, index) => (
-            <HLPCard
-              key={hlp.title}
-              title={hlp.title}
-              description={hlp.description}
-              icon={hlp.icon}
-              to={hlp.to}
-              delay={index}
-            />
-          ))}
-        </div>
-
-        <div className="animate-fade-in mt-10 rounded-xl bg-teachfx-lightblue p-6">
-          <div className="flex items-start space-x-4">
-            <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-teachfx-blue text-white">
-              <Brain className="h-5 w-5" />
+      <div className="max-w-4xl mx-auto">
+        <h1 className="text-3xl font-semibold mb-6">Welcome to TeachFX, Shi Han!</h1>
+        
+        {/* Main Card */}
+        <div className="bg-white rounded-xl shadow-sm p-8 mb-8">
+          <div className="space-y-8">
+            {/* Step 1 */}
+            <div className="flex items-start gap-4">
+              <div className="flex-shrink-0 w-8 h-8 rounded-full bg-green-100 flex items-center justify-center">
+                <Check className="w-5 h-5 text-green-500" />
+              </div>
+              <div>
+                <h2 className="text-lg font-medium text-gray-800">Onboarding</h2>
+              </div>
             </div>
-            <div>
-              <h3 className="mb-2 text-lg font-semibold text-gray-900">Why These Practices Matter</h3>
-              <p className="text-gray-700">
-                High-leverage practices are fundamental techniques and strategies that, when mastered,
-                can transform your teaching effectiveness across all subjects, grade levels, and student populations.
-                They serve as building blocks for more advanced pedagogical approaches.
-              </p>
+            
+            {/* Step 2 */}
+            <div className="flex items-start gap-4">
+              <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 font-medium">
+                2
+              </div>
+              <div className="flex-grow">
+                <button className="bg-teachfx-blue text-white px-4 py-2 rounded-md flex items-center gap-2">
+                  <Mic className="w-5 h-5" />
+                  Create your voice sample
+                </button>
+              </div>
+            </div>
+            
+            {/* Step 3 */}
+            <div className="flex items-start gap-4">
+              <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 font-medium">
+                3
+              </div>
+              <div>
+                <h2 className="text-lg font-medium text-gray-800 mb-1">Record yourself teaching</h2>
+                <p className="text-gray-600">
+                  You can record any lesson when you're speaking with students. Click Record on the side menu or download the 
+                  TeachFX <a href="#" className="text-teachfx-blue underline">app for iPhone</a> or <a href="#" className="text-teachfx-blue underline">Android</a>.
+                </p>
+              </div>
+            </div>
+            
+            {/* Step 4 */}
+            <div className="flex items-start gap-4">
+              <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 font-medium">
+                4
+              </div>
+              <div>
+                <h2 className="text-lg font-medium text-gray-800 mb-1">After you record 🎉</h2>
+                <p className="text-gray-600 mb-4">
+                  You'll get a summary of your lesson, a one-of-a-kind image, and helpful insights. It's pretty magical.
+                </p>
+                <div className="flex space-x-3">
+                  <img src="/lovable-uploads/a91be689-959c-4f04-b54e-e12ebad9b3c0.png" alt="Results illustration" className="h-20 rounded-lg" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        {/* Video Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="bg-gray-800 rounded-lg overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1649972904349-6e44c42644a7" alt="Welcome video" className="w-full h-48 object-cover opacity-75" />
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="bg-black/30 w-12 h-12 rounded-full flex items-center justify-center">
+                <Play className="w-5 h-5 text-white ml-1" />
+              </div>
+            </div>
+            <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
+              <p className="text-white font-medium">Welcome</p>
+            </div>
+          </div>
+          
+          <div className="bg-gray-800 rounded-lg overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d" alt="How to record" className="w-full h-48 object-cover opacity-75" />
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="bg-black/30 w-12 h-12 rounded-full flex items-center justify-center">
+                <Play className="w-5 h-5 text-white ml-1" />
+              </div>
+            </div>
+            <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
+              <p className="text-white font-medium">How to record</p>
             </div>
           </div>
         </div>
