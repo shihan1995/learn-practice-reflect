@@ -1,6 +1,5 @@
 
 import React, { useEffect } from 'react';
-import { motion } from 'framer-motion';
 import { MessageCircle, Users, FileText, Brain } from 'lucide-react';
 import Layout from '@/components/Layout';
 import HLPCard from '@/components/HLPCard';
@@ -41,12 +40,7 @@ const HLPSelection = () => {
   return (
     <Layout>
       <div className="animate-fade-in-up space-y-8">
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="mb-10 max-w-3xl"
-        >
+        <div className="animate-fade-in mb-10 max-w-3xl">
           <h1 className="mb-3 text-3xl font-bold text-gray-900">
             Select a High-Leverage Practice
           </h1>
@@ -54,7 +48,7 @@ const HLPSelection = () => {
             Each practice is designed to significantly impact student learning and teacher effectiveness.
             Choose one to begin your learning journey.
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-2">
           {hlpOptions.map((hlp, index) => (
@@ -69,12 +63,7 @@ const HLPSelection = () => {
           ))}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-          className="mt-10 rounded-xl bg-teachfx-lightblue p-6"
-        >
+        <div className="animate-fade-in mt-10 rounded-xl bg-teachfx-lightblue p-6">
           <div className="flex items-start space-x-4">
             <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-teachfx-blue text-white">
               <Brain className="h-5 w-5" />
@@ -88,7 +77,7 @@ const HLPSelection = () => {
               </p>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </Layout>
   );
